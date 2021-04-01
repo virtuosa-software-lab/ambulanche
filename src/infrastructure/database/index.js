@@ -3,6 +3,7 @@ require('dotenv').config()
 const Sequelize = require('sequelize')
 const fs = require('fs')
 const path = require('path')
+const { applyAssociations } = require('./associations')
 
 let db = {}
 const basename = path.basename(module.filename)
@@ -39,6 +40,10 @@ fs
     let model = require(path.join(modelsPath, file))(Sequelize, sequelize)
     db[model.name] = model
   })
+
+
+applyAssociations(sequelize)
+
 
 Object.keys(db).forEach((modelName) => {
   if (db[modelName].associate) {
