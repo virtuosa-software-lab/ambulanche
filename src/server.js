@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 9000
 db.sequelize.sync()
   .then(r => {
     app.listen(PORT, () => {
-      console.log(`carteirinha is listening on port ${PORT}`)
+      console.log(`ambulanche is listening on port ${PORT}`)
     })
   }).catch(err => {
     console.log(err)

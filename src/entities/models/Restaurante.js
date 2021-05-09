@@ -1,29 +1,22 @@
 module.exports = (Sequelize, sequelize) => {
-  return sequelize.define('user', {
+  return sequelize.define('restaurante', {
     id: {
       type: Sequelize.INTEGER,
       autoIncrement: true,
       allowNull: false,
       primaryKey: true
     },
-    name: {
+    nome: {
       type: Sequelize.STRING,
       allowNull: false
     },
-    lastName: {
+    telefone: {
       type: Sequelize.STRING,
       allowNull: false
     },
-    email: {
+    cnpj: {
       type: Sequelize.STRING,
       allowNull: false
-    },
-    password: {
-      type: Sequelize.STRING,
-      allowNull: false
-    },
-    avatar: {
-      type: Sequelize.STRING
     }
   })
 }

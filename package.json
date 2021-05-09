@@ -1,14 +1,14 @@
 {
-  "name": "carteirinha",
+  "name": "Ambulanche",
   "version": "1.0.0",
-  "description": "Aplicativo para controle de despesas.",
+  "description": "Aplicativo para delivery.",
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "Lana Schuster",
+  "author": "Luiz Carlos",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",

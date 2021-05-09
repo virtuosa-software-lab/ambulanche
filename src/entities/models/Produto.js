@@ -1,20 +1,17 @@
 module.exports = (Sequelize, sequelize) => {
-  return sequelize.define('expense', {
+  return sequelize.define('produto', {
     id: {
       type: Sequelize.INTEGER,
       autoIncrement: true,
       allowNull: false,
       primaryKey: true
     },
-    description: {
+    nome: {
       type: Sequelize.STRING
     },
-    value: {
+    valor: {
       type: Sequelize.DOUBLE,
       allowNull: false
     },
-    date: {
-      type: Sequelize.DATE
-    }
   })
 }

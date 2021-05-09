@@ -1,17 +1,18 @@
 function applyAssociations(sequelize) {
-  const { user, incoming, expense, category } = sequelize.models;
+  const { usuario, restaurante, produto, cardapio } = sequelize.models;
 
-  user.hasMany(incoming)
-  user.hasMany(expense)
+  usuario.hasMany(restaurante)
 
-  incoming.belongsTo(user)
-  incoming.belongsTo(category)
+  restaurante.hasMany(cardapio)
+  restaurante.belongsTo(usuario)
 
-  expense.belongsTo(user)
-  expense.belongsTo(category)
+  produto.hasMany(cardapio)
 
-  category.hasMany(incoming)
-  category.hasMany(expense)
+  // cardapio.belongsTo(usuario)
+  // cardapio.belongsTo(category)
+
+  // category.hasMany(restaurante)
+  // category.hasMany(expense)
 }
 
 module.exports = { applyAssociations }
