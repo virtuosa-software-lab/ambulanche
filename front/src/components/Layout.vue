@@ -85,7 +85,7 @@
                  <v-list-item link @click="editarRestaurante">
                     Editar um Restaurante
                  </v-list-item>
-                <v-list-item link>
+                <v-list-item link @click="listarRestaurantes">
                     Listar Restaurantes
                  </v-list-item>
             </v-list>
@@ -127,6 +127,9 @@ export default({
         },
         listarUsuarios(){
             this.$router.push({name:"listar-usuarios"})
+        },
+        listarRestaurantes(){
+            this.$router.push({name:"listar-restaurantes"})
         }
     }
 })

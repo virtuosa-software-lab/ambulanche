@@ -24,10 +24,10 @@
   </div>
 </template>
 <script>
-import User from "../clients/user/user";
+import User from "../clients/rest/rest";
 
 export default {
-  name: "ListarUsuarios",
+  name: "ListarRestaurantes",
   data() {
     return {
       items: [],
@@ -36,20 +36,23 @@ export default {
       headers: [
       {text: 'id', value: 'id'},
       {text: 'nome', value: 'nome'},
-      {text: 'cpf', value: 'cpf'},
-      {text: 'rg', value: 'rg'},
+      {text: 'cnpj', value: 'cnpj'},
+      {text: 'ID dono', value: 'usuarioId'},
       {text: 'telefone', value: 'telefone'},
-      {text: 'tipo_usuario', value: 'tipo_usuario'}
+      {text: 'cep', value: 'cep'},
+      {text: 'Bairro', value: 'bairro'},
+      {text: 'Rua', value: 'rua'},
+      {text: 'Numero', value: 'numero'}
       ]
 
     };
   },
   created() {
-      this.buscarUsers()
+      this.buscarRests()
   },
   methods: {
-    buscarUsers() {
-      User.getUsers()
+    buscarRests() {
+      User.getRests()
         .then((response) => {
           this.items = response;
           console.log(this.items);
