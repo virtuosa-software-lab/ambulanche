@@ -1,30 +1,83 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Layout from '../components/Layout'
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home,
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/About.vue'),
-  },
+    {
+        path: '/',
+        component: Layout,
+        children: [
+          {
+            path: 'cadastrar-usuario',
+            name: 'usuarios',
+            props: () => ({editing: false}),
+            component: () =>
+              import(
+                /* webpackChunkName: 'home' */
+                '@/components/CadastrarUsuario.vue'
+              ),
+          },
+          {
+            path: 'editar-usuario',
+            name: 'editar-usuario',
+            props: () => ({editing: true}),
+            component: () =>
+              import(
+                /* webpackChunkName: 'home' */
+                '@/components/CadastrarUsuario.vue'
+              ),
+          },
+          {
+            path: 'cadastrar-restaurante',
+            name: 'restaurante',
+            props: () => ({editing: false}),
+            component: () =>
+              import(
+                /* webpackChunkName: 'home' */
+                '@/components/CadastrarRestaurante.vue'
+              ),
+          },
+          {
+            path: 'editar-restaurante',
+            name: 'editar-restaurante',
+            props: () => ({editing: true}),
+            component: () =>
+              import(
+                /* webpackChunkName: 'home' */
+                '@/components/CadastrarRestaurante.vue'
+              ),
+          },
+          {
+            path: 'cadastrar-cardapio',
+            name: 'cadastrar-cardapio',
+            component: () =>
+              import(
+                /* webpackChunkName: 'home' */
+                '@/components/CadastrarCardapio.vue'
+              ),
+          },
+          {
+            path: 'listar-usuarios',
+            name: 'listar-usuarios',
+            component: () =>
+              import(
+                /* webpackChunkName: 'home' */
+                '@/components/ListarUsuarios.vue'
+              ),
+          },
+        ],
+      },
 ]
 
+
 const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes,
+    mode: 'hash',
+    base: "/",
+    linkActiveClass: 'is-active',
+    routes,
 })
+
 
 export default router
