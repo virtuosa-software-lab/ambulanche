@@ -43,8 +43,7 @@ module.exports = (Sequelize, sequelize) => {
       allowNull: false
     },
     complemento: {
-      type: Sequelize.STRING,
-      allowNull: false
+      type: Sequelize.STRING
     },
     cidade: {
       type: Sequelize.STRING,
