@@ -156,7 +156,7 @@ export default {
               this.dialog = true;
             });
         } else {
-          rest.id = this.id;
+          rest.usuarioId = this.id;
           Rest.editRest(rest)
             .then((response) => {
               this.mensagem = "Restaurante Editado";
