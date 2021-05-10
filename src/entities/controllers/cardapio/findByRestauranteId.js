@@ -1,7 +1,7 @@
 const db = require('../../../infrastructure/database/index')
 
 module.exports = (res, id) => {
-  db.cardapio.findOne({ where: { restauranteId: id }})
+  db.cardapio.findAll({ where: { restauranteId: id }})
     .then( response => {
       res.status( 200 ).json( response )
     } )
