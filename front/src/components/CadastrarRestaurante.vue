@@ -2,7 +2,7 @@
   <v-form>
     <v-row>
       <v-col v-if="editing" cols="12" sm="12" md="12" lg="12">
-        <v-select :items="items" label="Standard" @change="selectRest($event)">
+        <v-select :items="items" label="Restaurante da edição" @change="selectRest($event)">
           <template v-slot:selection="{ item }">
             {{ item.nome }} - {{ item.cnpj }}
           </template>
@@ -17,20 +17,22 @@
           v-model="nome"
           label="Nome do Restaurante"
           required
+          outlined
         ></v-text-field>
       </v-col>
       <v-col cols="12" sm="6" md="6" lg="6">
-        <v-text-field v-model="cnpj" label="CNPJ" required></v-text-field>
+        <v-text-field v-model="cnpj" label="CNPJ" required outlined></v-text-field>
       </v-col>
       <v-col cols="12" sm="6" md="6" lg="6">
         <v-text-field
           v-model="telefone"
           label="telefone"
           required
+          outlined
         ></v-text-field>
       </v-col>
       <v-col cols="12" sm="6" md="6" lg="6">
-        <v-select :items="itemsUser" label="Standard" @change="selectUser($event)">
+        <v-select :items="itemsUser" label="Selecione o Usuário Dono" @change="selectUser($event)">
           <template v-slot:selection="{ item }">
             {{ item.nome }} - {{ item.cpf }}
           </template>
@@ -45,25 +47,25 @@
         <h1>Endereço</h1>
       </v-col>
       <v-col cols="12" sm="6" md="6" lg="6">
-        <v-text-field v-model="cep" label="CEP" required></v-text-field>
+        <v-text-field v-model="cep" label="CEP" required outlined></v-text-field>
       </v-col>
       <v-col cols="12" sm="6" md="6" lg="6">
-        <v-text-field v-model="bairro" label="Bairro" required></v-text-field>
+        <v-text-field v-model="bairro" label="Bairro" required outlined></v-text-field>
       </v-col>
       <v-col cols="12" sm="6" md="6" lg="6">
-        <v-text-field v-model="rua" label="Rua" required></v-text-field>
+        <v-text-field v-model="rua" label="Rua" required outlined></v-text-field>
       </v-col>
       <v-col cols="12" sm="6" md="6" lg="6">
-        <v-text-field v-model="cidade" label="Cidade" required></v-text-field>
+        <v-text-field v-model="cidade" label="Cidade" required outlined></v-text-field>
       </v-col>
       <v-col cols="12" sm="6" md="6" lg="6">
-        <v-text-field v-model="estado" label="Estado" required></v-text-field>
+        <v-text-field v-model="estado" label="Estado" required outlined></v-text-field>
       </v-col>
       <v-col cols="12" sm="6" md="6" lg="6">
-        <v-text-field v-model="numero" label="Numero" required></v-text-field>
+        <v-text-field v-model="numero" label="Numero" required outlined></v-text-field>
       </v-col>
        <v-col cols="12" sm="6" md="6" lg="6">
-        <v-text-field v-model="complemento" label="Complemento" required></v-text-field>
+        <v-text-field v-model="complemento" label="Complemento" required outlined></v-text-field>
       </v-col>
     </v-row>
     <v-row>
@@ -105,6 +107,7 @@ export default {
       dialog: false,
       itemsUser: [],
       items: [],
+      userId: '',
       id: '',
       complemento: '',
     };
@@ -127,7 +130,7 @@ export default {
         this.telefone &&
         this.cep &&
         this.numero &&
-        this.id
+        this.userId
       ) {
         let rest = {
           nome: this.nome,
@@ -140,7 +143,7 @@ export default {
           cep: this.cep,
           numero: this.numero,
           complemento: this.complemento,
-          usuarioId: this.id,
+          usuarioId: this.userId,
         };
 
         if (!this.editing) {
@@ -156,7 +159,7 @@ export default {
               this.dialog = true;
             });
         } else {
-          rest.usuarioId = this.id;
+          rest.id = this.id;
           Rest.editRest(rest)
             .then((response) => {
               this.mensagem = "Restaurante Editado";
@@ -199,7 +202,7 @@ export default {
         });
     },
     selectUser(user) {
-      this.id = user.id;
+      this.userId = user.id;
     },
     selectRest(rest) {
       this.cnpj = rest.cnpj;
@@ -212,7 +215,8 @@ export default {
       this.cep = rest.cep;
       this.numero = rest.numero;
       this.complemento = rest.complemento;
-      this.id = rest.usuarioId;
+      this.userId = rest.usuarioId;
+      this.id = rest.id
     },
   },
   

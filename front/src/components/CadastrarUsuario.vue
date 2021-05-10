@@ -6,7 +6,7 @@
         <v-col v-if="editing" cols="12" sm="12" md="12" lg="12">
             <v-select
                 :items="items"
-                label="Standard"
+                label="Selecione o Usuario para Edição"
                 @change="selectUser($event)"
         >
         <template v-slot:selection="{ item }">
@@ -18,13 +18,14 @@
         </v-select>
         </v-col>
          <v-col cols="12" sm="12" md="12" lg="12">
-                <h1>Dados do usuario</h1>
+                <h2>Dados do usuario</h2>
             </v-col>
        <v-col cols="12" sm="6" md="6" lg="6">
           <v-text-field
                 v-model="nome"
                 label="Nome"
                 required
+                outlined
             ></v-text-field>
         </v-col>
         <v-col cols="12" sm="6" md="6" lg="6">
@@ -32,6 +33,7 @@
                 v-model="cpf"
                 label="cpf"
                 required
+                outlined
             ></v-text-field>
         </v-col>
         <v-col cols="12" sm="6" md="6" lg="6">
@@ -39,6 +41,7 @@
                 v-model="rg"
                 label="rg"
                 required
+                outlined
             ></v-text-field>
         </v-col>
         <v-col cols="12" sm="6" md="6" lg="6">
@@ -46,6 +49,7 @@
                 v-model="telefone"
                 label="telefone"
                 required
+                outlined
             ></v-text-field>
         </v-col>
         <v-col cols="12" sm="6" md="6" lg="6">
@@ -53,6 +57,7 @@
                 v-model="tipo"
                 label="Tipo do usuario"
                 required
+                outlined
             ></v-text-field>
         </v-col>
         </v-row>
@@ -65,6 +70,7 @@
                 v-model="cep"
                 label="CEP"
                 required
+                outlined
             ></v-text-field>
         </v-col>
         <v-col cols="12" sm="6" md="6" lg="6">
@@ -72,6 +78,7 @@
                 v-model="bairro"
                 label="Bairro"
                 required
+                outlined
             ></v-text-field>
         </v-col>
         <v-col cols="12" sm="6" md="6" lg="6">
@@ -79,6 +86,7 @@
                 v-model="rua"
                 label="Rua"
                 required
+                outlined
             ></v-text-field>
         </v-col>
         <v-col cols="12" sm="6" md="6" lg="6">
@@ -86,6 +94,7 @@
                 v-model="cidade"
                 label="Cidade"
                 required
+                outlined
             ></v-text-field>
         </v-col>
         <v-col cols="12" sm="6" md="6" lg="6">
@@ -93,6 +102,7 @@
                 v-model="estado"
                 label="Estado"
                 required
+                outlined
             ></v-text-field>
         </v-col>
         <v-col cols="12" sm="6" md="6" lg="6">
@@ -100,6 +110,7 @@
                 v-model="numero"
                 label="Numero"
                 required
+                outlined
             ></v-text-field>
         </v-col>
          <v-col cols="12" sm="6" md="6" lg="6">
@@ -107,6 +118,7 @@
                 v-model="complemento"
                 label="Complemento"
                 required
+                outlined
             ></v-text-field>
         </v-col>
         </v-row>

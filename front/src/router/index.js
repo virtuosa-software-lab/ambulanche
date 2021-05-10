@@ -50,12 +50,31 @@ const routes = [
               ),
           },
           {
+            path: 'editar-cardapio',
+            name: 'editar-cardapio',
+            component: () =>
+              import(
+                /* webpackChunkName: 'home' */
+                '@/components/EditarCardapio.vue'
+              ),
+          },
+          {
             path: 'cadastrar-cardapio',
             name: 'cadastrar-cardapio',
             component: () =>
               import(
                 /* webpackChunkName: 'home' */
                 '@/components/CadastrarCardapio.vue'
+              ),
+          },
+          {
+            path: 'cadastrar-produto',
+            name: 'cadastrar-produto',
+            props: (router) => ({id_cardapio: router.params.id_cardapio}),
+            component: () =>
+              import(
+                /* webpackChunkName: 'home' */
+                '@/components/CadastrarProduto.vue'
               ),
           },
           {

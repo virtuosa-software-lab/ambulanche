@@ -51,14 +51,11 @@
             </template>
 
             <v-list>
-                 <v-list-item link>
-                     Editar um cardapio existente
+                 <v-list-item link @click="editarCardapio">
+                     Listar e Editar um cardapio existente
                  </v-list-item>
                  <v-list-item link @click="cadastrarCardapio">
                      Criar um novo cardapio
-                 </v-list-item>
-                <v-list-item link>
-                     Listar Cardapios de um Restaurante
                  </v-list-item>
             </v-list>
         </v-menu>
@@ -130,6 +127,9 @@ export default({
         },
         listarRestaurantes(){
             this.$router.push({name:"listar-restaurantes"})
+        },
+        editarCardapio(){
+            this.$router.push({name:"editar-cardapio"})
         }
     }
 })
