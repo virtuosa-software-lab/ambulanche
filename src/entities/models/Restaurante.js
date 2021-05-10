@@ -17,6 +17,33 @@ module.exports = (Sequelize, sequelize) => {
     cnpj: {
       type: Sequelize.STRING,
       allowNull: false
+    },
+    cep: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
+    rua: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
+    bairro: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
+    numero: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
+    complemento: {
+      type: Sequelize.STRING
+    },
+    cidade: {
+      type: Sequelize.STRING,
+      allowNull: false
+    },
+    estado: {
+      type: Sequelize.STRING,
+      allowNull: false
     }
   })
 }
