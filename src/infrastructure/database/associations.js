@@ -6,13 +6,8 @@ function applyAssociations(sequelize) {
   restaurante.hasMany(cardapio)
   restaurante.belongsTo(usuario)
 
-  produto.hasMany(cardapio)
-
-  // cardapio.belongsTo(usuario)
-  // cardapio.belongsTo(category)
-
-  // category.hasMany(restaurante)
-  // category.hasMany(expense)
+  produto.belongsToMany(cardapio, { through: 'cardapio_produto' })
+  cardapio.belongsToMany(produto, { through: 'cardapio_produto' })
 }
 
 module.exports = { applyAssociations }
