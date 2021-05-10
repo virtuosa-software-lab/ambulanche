@@ -8,8 +8,8 @@ produtoRouter.get('/', (req, res) => {
   list(req, res)
 })
 
-produtoRouter.post('/', (req, res) => {
-  create(res, req.body)
+produtoRouter.post('/:idCardapio', (req, res) => {
+  create(res, req.body, req.params.idCardapio)
 })
 
 produtoRouter.delete('/:id', (req, res) => {
