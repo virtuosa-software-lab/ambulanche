@@ -67,6 +67,15 @@ const routes = [
                 '@/components/ListarUsuarios.vue'
               ),
           },
+          {
+            path: 'listar-restaurantes',
+            name: 'listar-restaurantes',
+            component: () =>
+              import(
+                /* webpackChunkName: 'home' */
+                '@/components/ListarRestaurantes.vue'
+              ),
+          },
         ],
       },
 ]
