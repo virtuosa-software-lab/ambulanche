@@ -1,6 +1,6 @@
 const db = require('../../../infrastructure/database/index')
 
-module.exports = (req, res, usuario) => {
+module.exports = (res, usuario) => {
   db.usuario.create(usuario)
   .then( userResponse => {
     res.status( 201 ).json({ id: userResponse.id })
